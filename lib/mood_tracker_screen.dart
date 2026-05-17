@@ -183,7 +183,7 @@ class _MoodTrackerScreenState extends State<MoodTrackerScreen>
             duration: const Duration(milliseconds: 250),
             child: Text(
               _justLogged
-                  ? '✓ Logged! Keep checking in.'
+                  ? 'Logged! Keep checking in.'
                   : MoodData.description(_selectedMood),
               key: ValueKey(_justLogged
                   ? 'logged'
@@ -217,7 +217,7 @@ class _MoodTrackerScreenState extends State<MoodTrackerScreen>
       ),
       child: Column(
         children: [
-          // Large preview face
+          // preview face
           AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             padding: const EdgeInsets.all(20),
@@ -232,7 +232,7 @@ class _MoodTrackerScreenState extends State<MoodTrackerScreen>
             ),
           ),
           const SizedBox(height: 22),
-          // Row of 5 mood options
+          // Row of moods options
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: MoodType.values.map((mood) {

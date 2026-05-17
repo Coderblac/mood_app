@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mood_app/c_painter/face_painter.dart';
+import 'package:mood_app/c_painter/mood_face_painter.dart';
 import 'package:mood_app/models/mood_entry.dart';
 
 
@@ -79,7 +79,7 @@ class _AnimatedMoodFaceState extends State<AnimatedMoodFace>
   }
 }
 
-/// A tappable mood face that bounces when pressed — used in the selector grid
+// mood face that bounces when pressed
 class TappableMoodFace extends StatefulWidget {
   final MoodType mood;
   final bool isSelected;

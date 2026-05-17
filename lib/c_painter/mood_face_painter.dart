@@ -21,7 +21,7 @@ class MoodFacePainter extends CustomPainter {
     final double r =
         (size.width < size.height ? size.width : size.height) / 2 * 0.9;
 
-    // Pulse scale applied to whole face
+    // opulse scale applied to whole face
     final double scale = 0.85 + 0.15 * animationValue;
     canvas.save();
     canvas.translate(cx, cy);
@@ -37,7 +37,7 @@ class MoodFacePainter extends CustomPainter {
     final Color faceColor = MoodData.colors[mood]!;
     final Color darkColor = _darken(faceColor, 0.25);
 
-    // ── Face circle ──────────────────────────────────────────────────────────
+    // Face circle 
     final Paint bgPaint = Paint()
       ..color = faceColor.withOpacity(0.18)
       ..style = PaintingStyle.fill;
@@ -49,7 +49,7 @@ class MoodFacePainter extends CustomPainter {
       ..strokeWidth = r * 0.07;
     canvas.drawCircle(Offset(cx, cy), r, rimPaint);
 
-    // Dispatch to mood-specific drawing
+    // Dispatch to mood specific drawing
     switch (mood) {
 
       case MoodType.happy:
@@ -66,7 +66,7 @@ class MoodFacePainter extends CustomPainter {
   }
 
 
-  // HAPPY — simple smile, open eyes, slight brow lift
+  // happy simple smile open eyes slight brow lift
 
   void _drawHappy(
     Canvas canvas,
@@ -82,7 +82,7 @@ class MoodFacePainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeWidth = r * 0.065;
 
-    // Eyes — simple filled circles
+    // Eyes simple circles filled
     final Paint eyePaint = Paint()
       ..color = darkColor
       ..style = PaintingStyle.fill;
@@ -104,7 +104,7 @@ class MoodFacePainter extends CustomPainter {
       shinePaint,
     );
 
-    // Relaxed brows — slightly lifted
+    // elaxed brows lifted slightly
     _drawEyebrow(
       canvas,
       cx - r * 0.28,
@@ -136,7 +136,7 @@ class MoodFacePainter extends CustomPainter {
   }
 
 
-  // NEUTRAL — flat line mouth, normal eyes, level brows
+  // NEUTRAL flat line mouth normal eyes level brows
 
   void _drawNeutral(
     Canvas canvas,
@@ -209,14 +209,14 @@ class MoodFacePainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeWidth = r * 0.065;
 
-    // Droopy eyes — half-lidded (ellipse + arc)
+    // Droopy eyes half lidded (ellipse + arc)
     final Paint eyePaint = Paint()
       ..color = darkColor
       ..style = PaintingStyle.fill;
     canvas.drawCircle(Offset(cx - r * 0.28, cy - r * 0.08), r * 0.09, eyePaint);
     canvas.drawCircle(Offset(cx + r * 0.28, cy - r * 0.08), r * 0.09, eyePaint);
 
-    // Half-lid lines
+    // Half lid lines
     final Paint lidPaint = Paint()
       ..color = darkColor.withOpacity(0.7)
       ..style = PaintingStyle.stroke
@@ -233,7 +233,7 @@ class MoodFacePainter extends CustomPainter {
       lidPaint,
     );
 
-    // Sad brows — inner corners raised (worried angle)
+    // Sad brows inner corners raised worried angle)
     _drawAngledBrow(
       canvas,
       cx - r * 0.28,
@@ -253,7 +253,7 @@ class MoodFacePainter extends CustomPainter {
       strokeWidth: r * 0.06,
     );
 
-    // Downward frown arc
+    // downward frown arc
     final Rect frownRect = Rect.fromCenter(
       center: Offset(cx, cy + r * 0.55),
       width: r * 0.7,

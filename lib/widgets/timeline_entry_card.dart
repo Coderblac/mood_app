@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mood_app/c_painter/face_painter.dart';
+import 'package:mood_app/c_painter/mood_face_painter.dart';
 import 'package:mood_app/models/mood_entry.dart';
 
 class TimelineEntryCard extends StatefulWidget {
@@ -136,7 +136,7 @@ class _TimelineEntryCardState extends State<TimelineEntryCard>
                       ),
                     ),
                   ),
-                  // Label + time
+                  // Label and time
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Column(
